@@ -29,7 +29,6 @@ import java.util.Map;
 
 public class pacient_dashboard extends AppCompatActivity {
     private RequestQueue mQueue;
-    private TextView jwtTextView;
     private Button buttonLogout;
     private SharedPreferences pref;
     private String jwt = null;
@@ -44,17 +43,10 @@ public class pacient_dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pacient_dashboard);
-        jwtTextView = findViewById(R.id.token);
         pref = getApplicationContext().getSharedPreferences("MyPref", 0); // 0 - for private mode
-        Button buttonParse = findViewById(R.id.button_parse);
         buttonLogout = findViewById(R.id.button_logout);
         mQueue = Volley.newRequestQueue(this);
-        buttonParse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                jsonParse();
-            }
-        });
+
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
